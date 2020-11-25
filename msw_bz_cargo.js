@@ -18,7 +18,7 @@ var mqtt = require('mqtt');
 var fs = require('fs');
 var spawn = require('child_process').spawn;
 
-var my_msw_name = 'msw_sparrow_cargo';				// 'msw_sparrow_air';
+var my_msw_name = 'msw_bz_cargo';				// 'msw_bz_air';
 
 var fc = {};
 var config = {};
@@ -44,16 +44,16 @@ catch (e) {
 // library 추가
 var add_lib = {};
 try {
-    add_lib = JSON.parse(fs.readFileSync('./' + config.directory_name + '/lib_sparrow_air.json', 'utf8'));
+    add_lib = JSON.parse(fs.readFileSync('./' + config.directory_name + '/lib_bz_cargo.json', 'utf8'));
     config.lib.push(add_lib);
 }
 catch (e) {
     add_lib = {
-        name: 'msw_sparrow_cargo',			// 'lib_sparrow_air',
+        name: 'msw_bz_cargo',
         target: 'armv6',
         description: "[name] [pwm_no]",
-        scripts: './lib_sparrow_cargo 0',		// './lib_sparrow_air /dev/ttyUSB4 115200',
-	data: ['CARGO'],
+        scripts: './lib_bz_cargo 0',
+        data: ['CARGO'],
         control: ['Control_OPEN']
     };
     config.lib.push(add_lib);
@@ -111,7 +111,6 @@ function runLib(obj_lib) {
         }
 
         var run_lib = spawn(scripts_arr[0], scripts_arr.slice(1));
-        // var run_lib = spawn('python3', ['./' + config.directory_name + '/lib_sparrow_air.py', '/dev/ttyUSB4', 115200]);
 
         run_lib.stdout.on('data', function(data) {
             console.log('stdout: ' + data);
@@ -123,10 +122,14 @@ function runLib(obj_lib) {
 
         run_lib.on('exit', function(code) {
             console.log('exit: ' + code);
+
+            setTimeout(init, 1000);
         });
 
         run_lib.on('error', function(code) {
             console.log('error: ' + code);
+
+            setTimeout(init, 1000);
         });
     }
     catch (e) {
@@ -229,18 +232,18 @@ setTimeout(init, 1000);
 function parseDataMission(topic, str_message) {
     try {
         // User define Code
-        var obj_lib_data = JSON.parse(str_message);
-        if(fc.hasOwnProperty('global_position_int')) {
-            Object.assign(obj_lib_data, JSON.parse(JSON.stringify(fc['global_position_int'])));
-        }
-        str_message = JSON.stringify(obj_lib_data);
+        // var obj_lib_data = JSON.parse(str_message);
+        // if(fc.hasOwnProperty('global_position_int')) {
+        //     Object.assign(obj_lib_data, JSON.parse(JSON.stringify(fc['global_position_int'])));
+        // }
+        // str_message = JSON.stringify(obj_lib_data);
 
         ///////////////////////////////////////////////////////////////////////
 
         var topic_arr = topic.split('/');
         var data_topic = '/Mobius/' + config.gcs + '/Mission_Data/' + config.drone + '/' + config.name + '/' + topic_arr[topic_arr.length-1];
-        // msw_mqtt_client.publish(data_topic + config.sortie_name, str_message);
-        msw_mqtt_client.publish(data_topic, str_message);
+        msw_mqtt_client.publish(data_topic + '/' + my_sortie_name, str_message);
+
     }
     catch (e) {
         console.log('[parseDataMission] data format of lib is not json');

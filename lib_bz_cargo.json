@@ -1,0 +1,8 @@
+{
+  "name": "lib_bz_cargo",
+  "target": "armv6",
+  "description": "[name] [portnum] [baudrate]",
+  "scripts": "./lib_bz_cargo 0",
+  "data": ["CARGO"],
+  "control": ["Control_Yaw"]
+}
