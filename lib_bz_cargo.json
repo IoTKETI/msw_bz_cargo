@@ -1,8 +1,14 @@
 {
-  "name": "lib_bz_cargo",
-  "target": "armv6",
-  "description": "[name] [portnum] [baudrate]",
-  "scripts": "./lib_bz_cargo 0",
-  "data": ["CARGO"],
-  "control": ["Control_Yaw"]
+	"name"			:	"lib_bz_cargo",
+	"target"		:	"armv6",
+	"description"	:	"[name] [config_file.json]",
+	"scripts"		:	"./lib_bz_cargo lib_bz_cargo.json",
+	"data"			:
+					[
+						"State"									// {"Cargo": "Open/Closed", "Mount": "is Mounted/is not Mounted", "Pressure_Raw": "0.00"}
+					],
+	"control"		:
+					[
+						"Control_Cargo"							// Control_Cargo = Open/Closed
+					]
 }
