@@ -5,10 +5,10 @@
 	"scripts"		:	"./lib_bz_cargo lib_bz_cargo.json",
 	"data"			:
 					[
-						"State"									// {"Cargo": "Open/Closed", "Mount": "is Mounted/is not Mounted", "Pressure_Raw": "0.00"}
+						"State"									// {"Cargo": "OPEN/CLOSED", "Mount": "is Mounted/is not Mounted", "Pressure_Raw": "0.00"}
 					],
 	"control"		:
 					[
-						"Control_Cargo"							// Control_Cargo = Open/Closed
+						"Control_Cargo"							// Control_Cargo = OPEN/CLOSED
 					]
 }
