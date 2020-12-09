@@ -9,6 +9,6 @@
 					],
 	"control"		:
 					[
-						"Control_Cargo"							// Control_Cargo = OPEN/CLOSED
+						"Control_OPEN"							// Control_Cargo = OPEN/CLOSED
 					]
 }
