@@ -45,12 +45,12 @@ catch (e) {
 var add_lib = {};
 try {
     add_lib = JSON.parse(fs.readFileSync('./' + config.directory_name + '/lib_bz_cargo.json', 'utf8'));
-	console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!' + add_lib);	
+	console.log('cargo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!' + add_lib);	
 
     config.lib.push(add_lib);
 }
 catch (e) {
-	console.log('fffffffffffffffffffffffff');
+	console.log('cargo fffffffffffffffffffffffff');
     add_lib = {
         name: 'lib_bz_cargo',
         target: 'armv6',
