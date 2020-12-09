@@ -1,8 +1,8 @@
 {
 	"name"			:	"lib_bz_cargo",
 	"target"		:	"armv6",
-	"description"	:	"[name] [config_file.json]",
-	"scripts"		:	"./lib_bz_cargo lib_bz_cargo.json",
+	"description"	:	"[name]",
+	"scripts"		:	"./lib_bz_cargo",
 	"data"			:
 					[
 						"State"									// {"Cargo": "OPEN/CLOSED", "Mount": "is Mounted/is not Mounted", "Pressure_Raw": "0.00"}
