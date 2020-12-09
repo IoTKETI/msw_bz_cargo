@@ -49,7 +49,7 @@ try {
 }
 catch (e) {
     add_lib = {
-        name: 'msw_bz_cargo',
+        name: 'lib_bz_cargo',
         target: 'armv6',
         description: "[name] [pwm_no]",
         scripts: './lib_bz_cargo 0',
