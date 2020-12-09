@@ -45,19 +45,16 @@ catch (e) {
 var add_lib = {};
 try {
     add_lib = JSON.parse(fs.readFileSync('./' + config.directory_name + '/lib_bz_cargo.json', 'utf8'));
-	console.log('cargo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!' + add_lib);	
-
     config.lib.push(add_lib);
 }
 catch (e) {
-	console.log('cargo fffffffffffffffffffffffff');
     add_lib = {
         name: 'lib_bz_cargo',
         target: 'armv6',
-        description: "[name] [pwm_no]",
-        scripts: './lib_bz_cargo 0',
-        data: ['CARGO'],
-        control: ['Control_OPEN']
+        description: "[name]",
+        scripts: './lib_bz_cargo',		// {"Cargo": "OPEN/CLOSED", "Mount": "is Mounted/is not Mounted", "Pressure_Raw": "0.00"}
+        data: ['State'],
+        control: ['Control_Cargo']		// Control_Cargo = OPEN/CLOSED
     };
     config.lib.push(add_lib);
 }

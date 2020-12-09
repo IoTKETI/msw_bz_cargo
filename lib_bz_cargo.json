@@ -1,14 +1,8 @@
 {
-	"name"			:	"lib_bz_cargo",
-	"target"		:	"armv6",
-	"description"	:	"[name]",
-	"scripts"		:	"./lib_bz_cargo",
-	"data"			:
-					[
-						"State"									// {"Cargo": "OPEN/CLOSED", "Mount": "is Mounted/is not Mounted", "Pressure_Raw": "0.00"}
-					],
-	"control"		:
-					[
-						"Control_Cargo"							// Control_Cargo = OPEN/CLOSED
-					]
+    "name"          : "lib_bz_cargo",
+    "target"        : "armv6",
+    "description"   : "[name]",
+    "scripts"       : "./lib_bz_cargo",
+    "data"          : ["State"],
+    "control"       : ["Control_Cargo"]
 }
