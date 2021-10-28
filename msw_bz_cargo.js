@@ -53,8 +53,8 @@ catch (e) {
         target: 'armv6',
         description: "[name]",
         scripts: './lib_bz_cargo',		// {"Cargo": "OPEN/CLOSED", "Mount": "is Mounted/is not Mounted", "Pressure_Raw": "0.00"}
-        data: ['State'],
-        control: ['Control_Cargo']		// {Control_Cargo = "OPEN/CLOSED"}
+        data: ['CARGO'],
+        control: ['Cargo_Control']		// {Control_Cargo = "OPEN/CLOSED"}
     };
     config.lib.push(add_lib);
 }
